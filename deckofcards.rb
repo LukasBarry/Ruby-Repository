@@ -5,7 +5,7 @@ deck_suits = ['Hearts', 'Spades', 'Diamonds', 'Clubs']
 players = []
 input = ''
 
-puts 'Please enter the first name of all players.'
+puts 'Please enter the first name of all players please.'
 until input == 'Done'
   input = gets.chomp.capitalize
   players<<input #can also be players.push input or players.push(input)
