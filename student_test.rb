@@ -12,51 +12,41 @@ class Student
     reply = gets.chomp.downcase
   end
   def exam
-    @grade = 0
+    @grade = 0.0
     puts "Please answer true or false"
     puts "Question One: 2 + 2 = 4. True or False"
     reply = gets.chomp.downcase
     if reply == "true"
-      @grade =+ 1
-    else
-      @grade += 0
+      @grade += 1.0
     end
     puts "The correct answer is True"
     puts "Question Two: The earth is round. True or False"
     reply = gets.chomp.downcase
     if reply == "true"
-      @grade += 1
-    else
-      @grade += 0
+      @grade += 1.0
     end
     puts "The correct answer is True"
     puts "Question Three: The sky is green. True or False"
     reply == gets.chomp.downcase
     if reply == "false"
-      @grade += 1
-    else
-      @grade += 0
+      @grade += 1.0
     end
     puts "The correct answer is False"
     puts "Question Four: Gasoline is flammable. True or False"
     reply = gets.chomp.downcase
     if reply == "true"
-      @grade += 1
-    else
-      @grade += 0
+      @grade += 1.0
     end
     puts "The correct answer is True"
     puts "Question Five: Computers run on magic. True or False"
     reply = gets.chomp.downcase
     if reply == "false"
-      @grade += 1
-    else
-      @grade += 0
+      @grade += 1.0
     end
     puts "The correct anser is False"
   end
   def feedback
-    retake = ((@grade.to_f / 5.0) * 100)
+    retake = ((@grade / 5.0) * 100.0)
     puts "Congrats! You got #{@grade} out of 5 correct!"
     puts "That means you got a #{(@grade.to_f / 5.0) * 100.0}% on this test!"
     if retake < 60.0
@@ -73,6 +63,7 @@ class Student
     end
   end
 end
+
 
 new_student = Student.new
 new_student
