@@ -83,10 +83,15 @@ class GamePlay < Casino
   end
   def winner
     if @dealer_hand.inject(:+) > 21
-      puts "The Dealer busts!"
+      abort "The Dealer busts!"
     end
     if @player_hand.inject(:+) > 21
-      puts "You busted!"
+      abort "You busted!"
+    end
+    if @dealer_hand.inject(:+) >= @player_hand.inject(:+)
+      puts "The Dealer wins"
+    elsif @player_hand.inject(:+) > @dealer_hand.inject(:+)
+      puts "You win!"
     end
   end
 end

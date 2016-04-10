@@ -28,8 +28,3 @@
 # animals.each do |anim|
 #   puts "The #{anim} goes #{sounds[anim]}"
 # end
-
-array = ['K']
-b = [10]
-array.map! { |x| x == 'K' ? b : x }.flatten!
-puts array
