@@ -64,6 +64,5 @@ class Student
   end
 end
 
-
 new_student = Student.new
 new_student
