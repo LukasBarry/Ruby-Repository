@@ -1,11 +1,18 @@
 class Casino
-  attr_accessor :start
+  attr_accessor :start, :stack, :bet
   def initialize
+  end
+  def stack
+    puts "How much in chips would you like?"
+    @stack = gets.chomp.to_i
+  end
+  def bet
+    puts "This table has a $5 minimum. How much would you like to bet?"
+    @chips = gets.chomp.to_i
+    @stack = @stack - @chips
   end
   def start
     puts "Welcome to The Venetian! Let's play some Blackjack!"
-    puts "This table has a $5 minimum. How much would you like to bet?"
-    reply = gets.chomp.to_i
   end
 end
 
@@ -14,6 +21,8 @@ class GamePlay < Casino
   def initialize
     name
     start
+    stack
+    bet
     deal
     winner
   end
@@ -97,10 +106,36 @@ class GamePlay < Casino
       abort "You busted!"
     end
     if @dealer_hand.inject(:+) >= @player_hand.inject(:+)
-      puts "The Dealer wins"
+      dealer_wins
+      puts "Would you like to play again?"
+      reply = gets.chomp.downcase
+      if reply == "yes"
+        bet
+        deal
+        winner
+      end
     elsif @player_hand.inject(:+) > @dealer_hand.inject(:+)
-      puts "You win!"
+      you_win
+      puts "Would you like to play again?"
+      reply = gets.chomp.downcase
+      if reply == "yes"
+        bet
+        deal
+        winner
+      end
     end
+  end
+  def you_win
+    puts "You win!"
+    puts "You just won #{@chips * 2} dollars!"
+    @stack = @stack + (@chips * 2)
+    puts "Now you have #{@stack} dollars!"
+  end
+  def dealer_wins
+    puts "The Dealer wins, you lost"
+    puts "You just lost #{@chips * 2} dollars."
+    @stack = @stack - (@chips)
+    puts "You now have #{@stack} dollars."
   end
 end
 
