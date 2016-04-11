@@ -56,6 +56,14 @@ class GamePlay < Casino
     if reply == "yes"
       puts hit
       @player_hand<<@deal_card
+      puts "Would you like to hit again?"
+      reply = gets.chomp.downcase
+      if reply == "yes"
+        puts hit
+        @player_hand<<@deal_card
+      else
+        puts "No problem"
+      end
     else
       puts "No problem."
     end
@@ -75,7 +83,7 @@ class GamePlay < Casino
     @dealer_hand.map! { |x| x == 'K' ? b : x }.flatten!
     @dealer_hand.map! { |x| x == 'A' ? c : x }.flatten!
     @dealer_hand.map! { |x| x == 'a' ? d : x }.flatten!
-    if @dealer_hand.inject(:+) < 15
+    until @dealer_hand.inject(:+) > 15
       puts hit
       @dealer_hand<<@deal_card
     end
