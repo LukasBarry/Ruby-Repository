@@ -95,6 +95,11 @@ class GamePlay < Casino
     until @dealer_hand.inject(:+) > 15
       puts hit
       @dealer_hand<<@deal_card
+      @dealer_hand.map! { |x| x == 'J' ? b : x }.flatten!
+      @dealer_hand.map! { |x| x == 'Q' ? b : x }.flatten!
+      @dealer_hand.map! { |x| x == 'K' ? b : x }.flatten!
+      @dealer_hand.map! { |x| x == 'A' ? c : x }.flatten!
+      @dealer_hand.map! { |x| x == 'a' ? d : x }.flatten!
     end
     puts "The Dealer has #{@dealer_hand.inject(:+)}"
   end
