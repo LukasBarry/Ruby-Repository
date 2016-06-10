@@ -1,6 +1,7 @@
 def XO(str)
   @exes = []
   @ohs = []
+  @other = []
   @str = str.downcase.split(//)
   @str.each do |m|
     if m == 'x'
@@ -8,8 +9,7 @@ def XO(str)
     elsif m == 'o'
       @ohs.push(m)
     else
-      puts true
-      abort
+      @other.push(m)
     end
   end
   if @exes.count == @ohs.count
