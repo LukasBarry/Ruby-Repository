@@ -12,11 +12,15 @@ def XO(str)
       @other.push(m)
     end
   end
+  if @exes.count == 0 && @ohs.count == 0
+    return true
+    abort
+  end
   if @exes.count == @ohs.count
-    puts true
+    return true
   else @exes.count < @ohs.count || @exes.count > @ohs.count
-    puts false
+    return false
   end
 end
 
-XO("xhejs")
+XO("nhejs")
