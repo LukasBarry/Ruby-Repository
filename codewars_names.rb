@@ -1,1 +1,3 @@
-['Lukas', 'Shane', 'Carolyn'].to_sentence
+def list names
+  
+end
