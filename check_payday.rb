@@ -3,8 +3,8 @@
 days_in_pay_period = 14
 seconds_in_a_day = 60 * 60 * 24
 
-matching_date = Time.local(0, 0, 0, 26, 6, 2016, 7, 178, true, "EDT")
-current_date = Time.new()
+Matching_date = Time.local(0, 0, 0, 26, 6, 2016, 7, 178, true, "EDT")
+Current_date = Time.new()
 
 difference_in_seconds = (current_date - matching_date)
 difference_in_days = (difference_in_seconds / seconds_in_a_day).to_i
